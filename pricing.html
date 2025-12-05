@@ -1,1 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voxflow Pricing - Transparent, flexible pricing for AI agents, SEO solutions, and business transformation. Choose the plan that fits your needs.">
+    <meta name="keywords" content="AI pricing, SEO pricing, business automation cost, affordable AI solutions, enterprise pricing">
+    <meta name="author" content="Voxflow - TP Business Solutions">
+    <title>Pricing - Voxflow | Flexible Plans for Every Business</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-blue: #0866FF;
+            --tech-blue: #1877F2;
+            --heather-gray: #B2B5BC;
+            --dark-text: #1C1E21;
+            --light-gray: #F0F2F5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e8f0fe 100%);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-blue);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            top: 6px;
+            left: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(8, 102, 255, 0.3);
+        }
+
+        .page-hero {
+            margin-top: 80px;
+            padding: 5rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: #5f6368;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .billing-toggle {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .toggle-btn {
+            background: white;
+            border: 2px solid var(--light-gray);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .save-badge {
+            background: #10b981;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-section {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(8, 102, 255, 0.15);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .plan-description {
+            color: #5f6368;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            color: #5f6368;
+            font-weight: 500;
+        }
+
+        .price-note {
+            color: #5f6368;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--dark-text);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .plan-features li.unavailable {
+            color: var(--heather-gray);
+        }
+
+        .plan-features li.unavailable::before {
+            content: '✗';
+            color: var(--heather-gray);
+        }
+
+        .plan-cta {
+            display: block;
+            text-align: center;
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(8, 102, 255, 0.2);
+        }
+
+        .plan-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(8, 102, 255, 0.3);
+        }
+
+        .plan-cta.secondary {
+            background: white;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            box-shadow: none;
+        }
+
+        .plan-cta.secondary:hover {
+            background: var(--light-gray);
+        }
+
+        .enterprise-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--tech-blue) 100%);
+            color: white;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .enterprise-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .enterprise-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .enterprise-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .enterprise-feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .enterprise-feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .enterprise-cta {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 1.2rem 3rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .enterprise-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .faq-section {
+            padding: 5rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .faq-item h3 {
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            color: #5f6368;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--heather-gray);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            color: var(--heather-gray);
+        }
+
+        @media (max-width: 968px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .enterprise-section h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"></div>
+            voxflow
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact-us.html" class="cta-button">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Choose the plan that fits your business needs. All plans include our core features with no hidden fees.</p>
+        <div class="billing-toggle">
+            <button class="toggle-btn active">Monthly</button>
+            <button class="toggle-btn">Annual <span class="save-badge">Save 20%</span></button>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Starter</div>
+                <div class="plan-description">Perfect for small businesses getting started with AI automation</div>
+                <div class="plan-price">$499<span>/month</span></div>
+                <div class="price-note">Billed monthly</div>
+                <ul class="plan-features">
+                    <li>1 AI Agent</li>
+                    <li>5,000 Conversations/month</li>
+                    <li>Email Support</li>
+                    <li>Basic Analytics</li>
+                    <li>Standard Integration</li>
+                    <li>Knowledge Base Access</li>
+                    <li class="unavailable">Priority Support</li>
+                    <li class="unavailable">Custom Training</li>
+                    <li class="unavailable">Advanced Analytics</li>
+                </ul>
+                <a href="contact-us.html" class="plan-cta secondary">Get Started</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="plan-name">Professional</div>
+                <div class="plan-description">For growing businesses ready to scale with advanced AI capabilities</div>
+                <div class="plan-price">$1,499<span>/month</span></div>
+                <div class="price-note">Billed monthly</div>
+                <ul class="plan-features">
+                    <li>3 AI Agents</li>
+                    <li>25,000 Conversations/month</li>
+                    <li>Priority Support</li>
+                    <li>Advanced Analytics</li>
+                    <li>Premium Integrations</li>
+                    <li>Custom Training</li>
+                    <li>API Access</li>
+                    <li>Multi-Channel Support</li>
+                    <li>Team Collaboration Tools</li>
+                </ul>
+                <a href="contact-us.html" class="plan-cta">Get Started</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Business</div>
+                <div class="plan-description">For established businesses requiring comprehensive AI solutions</div>
+                <div class="plan-price">$3,999<span>/month</span></div>
+                <div class="price-note">Billed monthly</div>
+                <ul class="plan-features">
+                    <li>10 AI Agents</li>
+                    <li>100,000 Conversations/month</li>
+                    <li>24/7 Priority Support</li>
+                    <li>Enterprise Analytics</li>
+                    <li>All Integrations</li>
+                    <li>Advanced Custom Training</li>
+                    <li>Full API Access</li>
+                    <li>Dedicated Account Manager</li>
+                    <li>Custom Workflows</li>
+                    <li>White-Label Options</li>
+                </ul>
+                <a href="contact-us.html" class="plan-cta secondary">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="enterprise-section">
+        <h2>Enterprise Solutions</h2>
+        <p>Custom solutions designed for large organizations with specific requirements and unlimited scale</p>
+        
+        <div class="enterprise-features">
+            <div class="enterprise-feature">
+                <h3>Unlimited Scale</h3>
+                <p>No limits on agents, conversations, or integrations</p>
+            </div>
+            <div class="enterprise-feature">
+                <h3>Custom Development</h3>
+                <p>Tailored AI solutions built for your specific needs</p>
+            </div>
+            <div class="enterprise-feature">
+                <h3>Dedicated Team</h3>
+                <p>Your own success team and technical support</p>
+            </div>
+            <div class="enterprise-feature">
+                <h3>SLA Guarantee</h3>
+                <p>99.9% uptime with dedicated infrastructure</p>
+            </div>
+        </div>
+
+        <a href="contact-us.html" class="enterprise-cta">Contact Sales</a>
+    </section>
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h3>Can I change my plan at any time?</h3>
+            <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any differences in your billing.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What happens if I exceed my conversation limit?</h3>
+            <p>We'll notify you when you're approaching your limit. You can either upgrade to a higher plan or purchase additional conversations at a discounted rate.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is there a free trial available?</h3>
+            <p>Yes! We offer a 14-day free trial for all new customers. No credit card required. Book a consultation to get started.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What integrations are supported?</h3>
+            <p>We support integrations with all major CRMs, help desk platforms, e-commerce systems, and communication channels. Custom integrations are available for Business and Enterprise plans.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do you offer discounts for annual billing?</h3>
+            <p>Yes! Save 20% when you choose annual billing. That's like getting more than 2 months free.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What kind of support do you provide?</h3>
+            <p>All plans include email support. Professional plans and above receive priority support with faster response times. Enterprise customers get 24/7 dedicated support with a dedicated account manager.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Voxflow</h3>
+                <p>Powered by TP Business Solutions - Pioneering service design and e-commerce innovation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact-us.html">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="services.html#ai-agents">AI Agents</a>
+                <a href="services.html#seo-agents">SEO Agents</a>
+                <a href="services.html">Service Design</a>
+                <a href="services.html">E-Commerce Solutions</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@tpbsolutions.org">hello@tpbsolutions.org</a>
+                <a href="https://koalendar.com/e/meet-with-taj-pollard" target="_blank">Book a Consultation</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Voxflow - TP Business Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const prices = document.querySelectorAll('.plan-price');
+        
+        const monthlyPrices = ['$499', '$1,499', '$3,999'];
+        const annualPrices = ['$399', '$1,199', '$3,199'];
+        
+        toggleBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                if (index === 0) {
+                    prices.forEach((price, i) => {
+                        price.innerHTML = monthlyPrices[i] + '<span>/month</span>';
+                    });
+                    document.querySelectorAll('.price-note').forEach(note => {
+                        note.textContent = 'Billed monthly';
+                    });
+                } else {
+                    prices.forEach((price, i) => {
+                        price.innerHTML = annualPrices[i] + '<span>/month</span>';
+                    });
+                    document.querySelectorAll('.price-note').forEach(note => {
+                        note.textContent = 'Billed annually';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
