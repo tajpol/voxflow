@@ -1,1 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Voxflow - Schedule a consultation with our team to discuss your AI and digital transformation needs. Book a meeting or reach out directly.">
+    <meta name="keywords" content="contact Voxflow, AI consultation, business solutions, schedule meeting, book consultation">
+    <meta name="author" content="Voxflow - TP Business Solutions">
+    <title>Contact Us - Voxflow | Schedule Your Consultation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-blue: #0866FF;
+            --tech-blue: #1877F2;
+            --heather-gray: #B2B5BC;
+            --dark-text: #1C1E21;
+            --light-gray: #F0F2F5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e8f0fe 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-blue);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            top: 6px;
+            left: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(8, 102, 255, 0.3);
+        }
+
+        .page-hero {
+            margin-top: 80px;
+            padding: 5rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: #5f6368;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        .contact-info p {
+            color: #5f6368;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(8, 102, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .method-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-text);
+        }
+
+        .method-content a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .method-content a:hover {
+            color: var(--tech-blue);
+        }
+
+        .booking-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .booking-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .booking-card p {
+            color: #5f6368;
+            margin-bottom: 2rem;
+        }
+
+        .booking-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .booking-option {
+            padding: 1.5rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .booking-option:hover {
+            border-color: var(--primary-blue);
+            background: rgba(8, 102, 255, 0.02);
+        }
+
+        .booking-option h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .booking-option p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #5f6368;
+        }
+
+        .primary-cta {
+            display: block;
+            text-align: center;
+            background: var(--primary-blue);
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(8, 102, 255, 0.25);
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(8, 102, 255, 0.35);
+        }
+
+        .response-time {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--tech-blue) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .response-time h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .response-time p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .faq-section {
+            padding: 4rem 5%;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 6px 25px rgba(8, 102, 255, 0.1);
+        }
+
+        .faq-item h3 {
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            color: #5f6368;
+            line-height: 1.8;
+        }
+
+        .social-proof {
+            background: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            padding: 1.5rem;
+        }
+
+        .stat h3 {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat p {
+            color: #5f6368;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--heather-gray);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            color: var(--heather-gray);
+        }
+
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .booking-card {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"></div>
+            voxflow
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact-us.html" class="cta-button">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Let's Transform Your Business</h1>
+        <p>Ready to take the next step? Our team is here to help you leverage AI and innovative solutions to achieve your goals.</p>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Whether you have questions about our services, need a custom solution, or want to learn more about how Voxflow can help your business, we're here to help.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">📧</div>
+                        <div class="method-content">
+                            <h3>Email Us</h3>
+                            <a href="mailto:hello@tpbsolutions.org">hello@tpbsolutions.org</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">📅</div>
+                        <div class="method-content">
+                            <h3>Schedule a Meeting</h3>
+                            <a href="https://koalendar.com/e/meet-with-taj-pollard" target="_blank">Book on Koalendar</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">💬</div>
+                        <div class="method-content">
+                            <h3>Quick Questions?</h3>
+                            <a href="mailto:hello@tpbsolutions.org">Send us a message</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="response-time">
+                    <h4>⚡ Fast Response Time</h4>
+                    <p>We typically respond within 48 hours on business days</p>
+                </div>
+            </div>
+
+            <div class="booking-card">
+                <h2>Book Your Consultation</h2>
+                <p>Choose the consultation type that best fits your needs. All consultations are free and no-obligation.</p>
+                
+                <div class="booking-options">
+                    <div class="booking-option">
+                        <h3>🚀 Discovery Session (60 min. max)</h3>
+                        <p>Perfect for exploring how Voxflow can help your business and getting quick answers to your questions.</p>
+                    </div>
+                    
+                    <div class="booking-option">
+                        <h3>💼 Strategy Session (60 min. max)</h3>
+                        <p>Deep dive into your current business with a detailed consultation and custom revisions.</p>
+                    </div>
+                    
+                    <div class="booking-option">
+                        <h3>🏢 Enterprise Consultation</h3>
+                        <p>Comprehensive review for large organizations with complex requirements and dedicated support needs.</p>
+                    </div>
+                </div>
+                
+                <a href="https://koalendar.com/e/meet-with-taj-pollard" target="_blank" class="primary-cta">Schedule Your Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof">
+        <h2>Trusted by Businesses Worldwide</h2>
+        <div class="stats-row">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Businesses Served</p>
+            </div>
+            <div class="stat">
+                <h3>98%</h3>
+                <p>Satisfaction Rate</p>
+            </div>
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Support Available</p>
+            </div>
+            <div class="stat">
+                <h3>10x</h3>
+                <p>Average ROI</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2>Common Questions</h2>
+        
+        <div class="faq-item">
+            <h3>What should I prepare for the consultation?</h3>
+            <p>Just come with your questions and goals! We'll guide you through everything. If you have specific documents or data you'd like to discuss, feel free to bring them, but it's not required.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is the consultation really free?</h3>
+            <p>Yes! Our initial consultation is completely free with no obligation. We believe in understanding your needs first and ensuring we're the right fit for your business.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How quickly can we get started after the consultation?</h3>
+            <p>For most projects, we can begin implementation within 1-2 weeks after your consultation, depending on the complexity and your specific requirements.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do you work with businesses in my industry?</h3>
+            <p>We work with businesses across all industries including retail, healthcare, finance, technology, hospitality, and more. Our AI and digital solutions are adaptable to any sector.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if I'm not sure which service I need?</h3>
+            <p>That's perfectly fine! During your consultation, we'll discuss your business challenges and goals, then recommend the best solution for your specific situation.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Voxflow</h3>
+                <p>Powered by TP Business Solutions - Pioneering service design and e-commerce innovation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact-us.html">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="services.html#ai-agents">AI Agents</a>
+                <a href="services.html#seo-agents">SEO Agents</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@tpbsolutions.org">hello@tpbsolutions.org</a>
+                <a href="https://koalendar.com/e/meet-with-taj-pollard" target="_blank">Book a Consultation</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Voxflow - TP Business Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
