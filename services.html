@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voxflow Services - AI Agents, SEO Solutions, Service Design, and E-Commerce Excellence. Transform your business with cutting-edge technology.">
+    <meta name="keywords" content="AI agents, SEO services, business automation, machine learning, digital transformation, e-commerce">
+    <meta name="author" content="Voxflow - TP Business Solutions">
+    <title>Services - Voxflow | AI Agents & SEO Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-blue: #0866FF;
+            --tech-blue: #1877F2;
+            --heather-gray: #B2B5BC;
+            --dark-text: #1C1E21;
+            --light-gray: #F0F2F5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e8f0fe 100%);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-blue);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            top: 6px;
+            left: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(8, 102, 255, 0.3);
+        }
+
+        .page-hero {
+            margin-top: 80px;
+            padding: 5rem 5% 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(8, 102, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: #5f6368;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-section {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 45px rgba(8, 102, 255, 0.15);
+        }
+
+        .service-card:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .service-card:nth-child(even) .service-visual {
+            order: 2;
+        }
+
+        .service-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-badge {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .coming-soon {
+            background: var(--heather-gray);
+        }
+
+        .service-content p {
+            font-size: 1.1rem;
+            color: #5f6368;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--dark-text);
+            font-size: 1.05rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .service-visual {
+            background: linear-gradient(135deg, rgba(8, 102, 255, 0.1) 0%, rgba(24, 119, 242, 0.05) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-visual::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(8, 102, 255, 0.1);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.3;
+            }
+        }
+
+        .visual-icon {
+            font-size: 8rem;
+            z-index: 1;
+        }
+
+        .service-cta {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(8, 102, 255, 0.25);
+        }
+
+        .service-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(8, 102, 255, 0.35);
+        }
+
+        .service-cta.disabled {
+            background: var(--heather-gray);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .service-cta.disabled:hover {
+            transform: none;
+        }
+
+        .benefits-section {
+            padding: 5rem 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .benefits-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background: rgba(8, 102, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .benefit-card p {
+            color: #5f6368;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--heather-gray);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            color: var(--heather-gray);
+        }
+
+        @media (max-width: 968px) {
+            .service-card {
+                grid-template-columns: 1fr;
+                padding: 2.5rem;
+                gap: 2rem;
+            }
+
+            .service-card:nth-child(even) .service-visual {
+                order: 1;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-content h2 {
+                font-size: 2rem;
+            }
+
+            .visual-icon {
+                font-size: 5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"></div>
+            voxflow
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact-us.html" class="cta-button">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Our Services</h1>
+        <p>Cutting-edge solutions designed to transform your business and drive measurable results</p>
+    </section>
+
+    <section class="services-section">
+        <div class="service-card" id="ai-agents">
+            <div class="service-content">
+                <h2>
+                    AI Agents
+                    <span class="service-badge">Available Now</span>
+                </h2>
+                <p>Transform your business operations with intelligent AI agents that work around the clock. Our advanced automation solutions handle complex tasks, engage customers, and drive efficiency across every touchpoint.</p>
+                <ul class="feature-list">
+                    <li>24/7 Intelligent Customer Support</li>
+                    <li>Automated Workflow Management</li>
+                    <li>Natural Language Processing</li>
+                    <li>Multi-Channel Integration</li>
+                    <li>Real-Time Learning & Optimization</li>
+                    <li>Custom Training on Your Data</li>
+                    <li>Seamless CRM Integration</li>
+                    <li>Advanced Analytics & Reporting</li>
+                </ul>
+                <a href="contact-us.html" class="service-cta">Get Started with AI Agents</a>
+            </div>
+            <div class="service-visual">
+                <div class="visual-icon">🤖</div>
+            </div>
+        </div>
+
+        <div class="service-card" id="seo-agents">
+            <div class="service-content">
+                <h2>
+                    SEO Agents
+                    <span class="service-badge coming-soon">Coming Soon</span>
+                </h2>
+                <p>Revolutionary AI-powered SEO agents that continuously optimize your digital presence. Our intelligent systems analyze, adapt, and execute strategies that keep you ahead of algorithm changes and competition.</p>
+                <ul class="feature-list">
+                    <li>Automated Keyword Research & Tracking</li>
+                    <li>Content Optimization AI</li>
+                    <li>Competitor Analysis & Insights</li>
+                    <li>Technical SEO Audits</li>
+                    <li>Backlink Monitoring & Strategy</li>
+                    <li>Real-Time Ranking Updates</li>
+                    <li>Performance Forecasting</li>
+                    <li>Multi-Site Management</li>
+                </ul>
+                <a href="#" class="service-cta disabled">Coming Q1 2026</a>
+            </div>
+            <div class="service-visual">
+                <div class="visual-icon">🚀</div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="benefits-section">
+        <h2>Why Choose Voxflow?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Rapid Implementation</h3>
+                <p>Get up and running quickly with our streamlined deployment process</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🎯</div>
+                <h3>Proven Results</h3>
+                <p>Data-driven strategies that deliver measurable ROI and growth</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🔒</div>
+                <h3>Enterprise Security</h3>
+                <p>Bank-level security and compliance for your peace of mind</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📞</div>
+                <h3>24/7 Support</h3>
+                <p>Dedicated team ready to help whenever you need assistance</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Voxflow</h3>
+                <p>Powered by TP Business Solutions - Pioneering service design and e-commerce innovation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact-us.html">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#ai-agents">AI Agents</a>
+                <a href="#seo-agents">SEO Agents</a>
+               
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@tpbsolutions.org">hello@tpbsolutions.org</a>
+                <a href="https://koalendar.com/e/meet-with-taj-pollard" target="_blank">Book a Consultation</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Voxflow - TP Business Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
